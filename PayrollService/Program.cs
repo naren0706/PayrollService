@@ -28,6 +28,7 @@ namespace PayrollService
             };
             operation.UpdateEmployee(payrollEmployee);
             operation.GetAllEmployeeDetails();
+            operation.GetRecordWithInDateRange();
 
         }
     }
