@@ -239,5 +239,25 @@ namespace PayrollService
                 Console.WriteLine(data.Id + " " + data.Name + " " + data.Salary + " " + data.Start_date + " " + data.Gender + " " + data.Phone + " " + data.Address + " " + data.Department + " " + data.Basic_pay + " " + data.Deductions + " " + data.Taxable_pay + " " + data.Income_tax + " " + data.Net_pay + " ");
             }
         }
+
+        internal void GetSumAvgMinMax()
+        {
+            SqlCommand com = new SqlCommand("GetSumAvgMinMax", con);
+
+            com.CommandType = CommandType.StoredProcedure;
+            SqlDataAdapter da = new SqlDataAdapter(com);
+            DataTable dt = new DataTable();
+            con.Open();
+            da.Fill(dt);
+            con.Close();
+            foreach (DataRow dr in dt.Rows)
+            {
+                Console.WriteLine("values for " + Convert.ToString(dr["Gender"]));
+                Console.Write(" total : "+Convert.ToString(dr["total"]));
+                Console.Write(" Average : "+Convert.ToString(dr["average"]));
+                Console.Write(" minimum : "+Convert.ToString(dr["minimum"]));
+                Console.WriteLine(" Maximum : "+Convert.ToString(dr["maximum"]));
+            }
+        }
     }
 }
