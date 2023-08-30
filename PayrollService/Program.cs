@@ -8,7 +8,7 @@ namespace PayrollService
         {
             Operation operation = new Operation();
             operation.CreateTable();
-           
+            operation.AddValues();
 
         }
     }
